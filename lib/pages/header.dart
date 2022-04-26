@@ -1,6 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/home.dart';
 
+import '../about_us.dart';
+import '../cart.dart';
+import '../contact_us.dart';
+import '../login.dart';
+import '../profile.dart';
+import '../search.dart';
 import '../utils/CustomTextStyle.dart';
 import '../utils/MenuItem.dart';
 import '../utils/ResponsiveLayout.dart';
@@ -62,20 +69,28 @@ class Header extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          Container(
-            child: Text(
-              "首頁",
-              style: CustomTextStyle.boldTextStyle.copyWith(
-                color: Colors.black,
+          GestureDetector(
+            onTap: () {
+              if (_keyMenu != MenuItem.MENU_HOME) {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Home()));
+              }
+            },
+            child: Container(
+              child: Text(
+                "首頁",
+                style: CustomTextStyle.boldTextStyle.copyWith(
+                  color: Colors.black,
+                ),
               ),
+              padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
             ),
-            padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
           ),
           GestureDetector(
             onTap: () {
               if (_keyMenu != MenuItem.MENU_SEARCH) {
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) => Search()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Search()));
               }
             },
             child: Container(
@@ -91,8 +106,8 @@ class Header extends StatelessWidget {
           GestureDetector(
             onTap: () {
               if (_keyMenu != MenuItem.MENU_CART) {
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) => Cart()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Cart()));
               }
             },
             child: Container(
@@ -108,13 +123,13 @@ class Header extends StatelessWidget {
           GestureDetector(
             onTap: () {
               if (_keyMenu != MenuItem.MENU_PROFILE) {
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) => Profile()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Profile()));
               }
             },
             child: Container(
               child: Text(
-                "簡介",
+                "個人資料",
                 style: CustomTextStyle.boldTextStyle.copyWith(
                   color: Colors.black,
                 ),
@@ -125,8 +140,8 @@ class Header extends StatelessWidget {
           GestureDetector(
             onTap: () {
               if (_keyMenu != MenuItem.MENU_ABOUT) {
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) => AboutUs()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => AboutUs()));
               }
             },
             child: Container(
@@ -142,8 +157,8 @@ class Header extends StatelessWidget {
           GestureDetector(
             onTap: () {
               if (_keyMenu != MenuItem.MENU_CONTACT_US) {
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) => ContactUs()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => ContactUs()));
               }
             },
             child: Container(
@@ -158,8 +173,8 @@ class Header extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              // Navigator.push(
-              //     context, MaterialPageRoute(builder: (context) => Login()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Login()));
             },
             child: Container(
               margin: EdgeInsets.only(right: 48),

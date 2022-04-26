@@ -1,7 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../about_us.dart';
+import '../cart.dart';
+import '../contact_us.dart';
 import '../home.dart';
+import '../login.dart';
+import '../profile.dart';
+import '../search.dart';
 import '../utils/CustomColors.dart';
 import '../utils/CustomTextStyle.dart';
 import '../utils/MenuItem.dart';
@@ -70,8 +76,8 @@ class DrawerMenu extends StatelessWidget {
             onTap: () {
               if (_keyMenu != MenuItem.MENU_SEARCH) {
                 Navigator.of(context).pop();
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) => Search()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Search()));
               }
             },
             child: Container(
@@ -90,8 +96,8 @@ class DrawerMenu extends StatelessWidget {
             onTap: () {
               if (_keyMenu != MenuItem.MENU_CART) {
                 Navigator.of(context).pop();
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) => Cart()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Cart()));
               }
             },
             child: Container(
@@ -110,15 +116,15 @@ class DrawerMenu extends StatelessWidget {
             onTap: () {
               if (_keyMenu != MenuItem.MENU_PROFILE) {
                 Navigator.of(context).pop();
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) => Profile()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Profile()));
               }
             },
             child: Container(
               width: double.infinity,
               padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
               child: Text(
-                "簡介",
+                "個人資料",
                 style: CustomTextStyle.boldTextStyle,
               ),
             ),
@@ -130,8 +136,8 @@ class DrawerMenu extends StatelessWidget {
             onTap: () {
               if (_keyMenu != MenuItem.MENU_ABOUT) {
                 Navigator.of(context).pop();
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) => AboutUs()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => AboutUs()));
               }
             },
             child: Container(
@@ -150,8 +156,8 @@ class DrawerMenu extends StatelessWidget {
             onTap: () {
               if (_keyMenu != MenuItem.MENU_CONTACT_US) {
                 Navigator.of(context).pop();
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) => ContactUs()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => ContactUs()));
               }
             },
             child: Container(
@@ -170,8 +176,8 @@ class DrawerMenu extends StatelessWidget {
             onTap: () {
               if (_keyMenu != MenuItem.MENU_LOGIN_SIGNUP) {
                 Navigator.of(context).pop();
-                // Navigator.of(context)
-                //     .push(MaterialPageRoute(builder: (context) => Login()));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Login()));
               }
             },
             child: Container(
