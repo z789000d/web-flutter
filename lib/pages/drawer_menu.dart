@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/productPage.dart';
 
 import '../about_us.dart';
 import '../cart.dart';
@@ -24,19 +25,17 @@ class DrawerMenu extends StatelessWidget {
 
   createDrawer(context) {
     return Drawer(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: ListView(
         children: <Widget>[
           Container(
             padding: EdgeInsets.fromLTRB(0, 24, 0, 24),
-            color: CustomColors.THEME_COLOR,
+            color: Colors.grey,
             child: Column(
               children: <Widget>[
                 Container(
                   height: 40,
                   decoration: BoxDecoration(
-                      color: CustomColors.THEME_COLOR,
-                      image: DecorationImage(image: AssetImage("ic_logo.png"))),
+                      image: DecorationImage(image: AssetImage("home_icon.jpg"))),
                 ),
                 SizedBox(
                   height: 16,
@@ -85,6 +84,26 @@ class DrawerMenu extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
               child: Text(
                 "搜尋",
+                style: CustomTextStyle.boldTextStyle,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 8,
+          ),
+          InkWell(
+            onTap: () {
+              if (_keyMenu != MenuItem.MENU_PRODUCTLIST) {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => ProductPage()));
+              }
+            },
+            child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+              child: Text(
+                "商品清單",
                 style: CustomTextStyle.boldTextStyle,
               ),
             ),

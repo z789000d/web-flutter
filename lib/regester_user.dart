@@ -35,7 +35,7 @@ class RegisterUserState extends State<RegisterUser>{
                   height: 10,
                   width: 20,
                 ),
-                Text("Grocery Fact",style: CustomTextStyle.regularTextStyle.copyWith(color: Colors.black,fontSize: 24,fontWeight: FontWeight.bold),),
+                Text("Xxxxx",style: CustomTextStyle.regularTextStyle.copyWith(color: Colors.black,fontSize: 24,fontWeight: FontWeight.bold),),
                 SizedBox(
                   height: 60,
                   width: 20,
@@ -46,7 +46,7 @@ class RegisterUserState extends State<RegisterUser>{
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
                         border: CustomBorder.border,
-                        labelText: "Name",
+                        labelText: "姓名",
                         enabledBorder: CustomBorder.border,
                         focusedBorder: CustomBorder.border.copyWith(
                             borderSide: BorderSide(color: Colors.blue)),
@@ -61,7 +61,7 @@ class RegisterUserState extends State<RegisterUser>{
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                         border: CustomBorder.border,
-                        labelText: "Mobile No",
+                        labelText: "手機號碼",
                         enabledBorder: CustomBorder.border,
                         focusedBorder: CustomBorder.border.copyWith(
                             borderSide: BorderSide(color: Colors.blue)),
@@ -92,7 +92,7 @@ class RegisterUserState extends State<RegisterUser>{
                     keyboardType: TextInputType.text,
                     obscureText: true,
                     decoration: InputDecoration(
-                        labelText: "Password",
+                        labelText: "密碼",
                         border: CustomBorder.border,
                         enabledBorder: CustomBorder.border,
                         focusedBorder: CustomBorder.border.copyWith(
@@ -104,7 +104,7 @@ class RegisterUserState extends State<RegisterUser>{
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 24,top: 24),
-                  child: RaisedButton(onPressed: (){},child: Text("Register"),padding: EdgeInsets.symmetric(horizontal: 96,vertical: 16),),
+                  child: RaisedButton(onPressed: (){},child: Text("註冊"),padding: EdgeInsets.symmetric(horizontal: 96,vertical: 16),),
                 ),
 
               ],

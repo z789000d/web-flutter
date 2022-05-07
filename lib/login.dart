@@ -44,7 +44,7 @@ class LoginState extends State<Login> {
                           width: 20,
                         ),
                         Text(
-                          "Grocery Fact",
+                          "xxxxxx",
                           style: CustomTextStyle.regularTextStyle.copyWith(
                               color: Colors.black,
                               fontSize: 24,
@@ -60,7 +60,7 @@ class LoginState extends State<Login> {
                             keyboardType: TextInputType.text,
                             decoration: InputDecoration(
                                 border: CustomBorder.border,
-                                labelText: "Mobile No. or Email",
+                                labelText: "手機號碼 or Email",
                                 enabledBorder: CustomBorder.border,
                                 focusedBorder: CustomBorder.border.copyWith(
                                     borderSide:
@@ -81,7 +81,7 @@ class LoginState extends State<Login> {
                             keyboardType: TextInputType.text,
                             obscureText: true,
                             decoration: InputDecoration(
-                                labelText: "Password",
+                                labelText: "密碼",
                                 border: CustomBorder.border,
                                 enabledBorder: CustomBorder.border,
                                 focusedBorder: CustomBorder.border.copyWith(
@@ -100,7 +100,7 @@ class LoginState extends State<Login> {
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => Home()));
                             },
-                            child: Text("Login"),
+                            child: Text("登入"),
                             padding: EdgeInsets.symmetric(
                                 horizontal: 96, vertical: 16),
                           ),
@@ -113,7 +113,7 @@ class LoginState extends State<Login> {
                                 alignment: Alignment.topRight,
                                 margin: EdgeInsets.only(left: 48),
                                 child: Text(
-                                  "New User?",
+                                  "新用戶？",
                                   style: CustomTextStyle.regularTextStyle
                                       .copyWith(
                                       color: Colors.teal,
@@ -130,7 +130,7 @@ class LoginState extends State<Login> {
                               alignment: Alignment.topRight,
                               margin: EdgeInsets.only(right: 48),
                               child: Text(
-                                "Forget Password?",
+                                "忘記密碼？",
                                 style: CustomTextStyle.regularTextStyle
                                     .copyWith(
                                     color: Colors.teal,

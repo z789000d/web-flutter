@@ -96,7 +96,7 @@ class Profile extends StatelessWidget {
           ),
           Container(
             child: Text(
-              "+ UPLOAD IMAGE",
+              "+ 更新照片",
               style: CustomTextStyle.boldTextStyle.copyWith(color: Colors.red),
             ),
           )
@@ -116,22 +116,7 @@ class Profile extends StatelessWidget {
           TextFormField(
             decoration: InputDecoration(
               border: border,
-              hintText: "First Name",
-              labelStyle: CustomTextStyle.regularTextStyle
-                  .copyWith(color: Colors.black, fontSize: 20),
-              hintStyle:
-              CustomTextStyle.regularTextStyle.copyWith(color: Colors.grey),
-              enabledBorder: border,
-              focusedBorder: border,
-            ),
-          ),
-          SizedBox(
-            height: 12,
-          ),
-          TextFormField(
-            decoration: InputDecoration(
-              border: border,
-              hintText: "Last Name",
+              hintText: "姓名",
               labelStyle: CustomTextStyle.regularTextStyle
                   .copyWith(color: Colors.black, fontSize: 20),
               hintStyle:
@@ -147,7 +132,7 @@ class Profile extends StatelessWidget {
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               border: border,
-              hintText: "Email Address",
+              hintText: "Email",
               labelStyle: CustomTextStyle.regularTextStyle
                   .copyWith(color: Colors.black, fontSize: 20),
               hintStyle:
@@ -163,7 +148,7 @@ class Profile extends StatelessWidget {
             keyboardType: TextInputType.phone,
             decoration: InputDecoration(
               border: border,
-              hintText: "Mobile Number",
+              hintText: "手機號碼",
               labelStyle: CustomTextStyle.regularTextStyle
                   .copyWith(color: Colors.black, fontSize: 20),
               hintStyle:
@@ -180,7 +165,7 @@ class Profile extends StatelessWidget {
             obscureText: true,
             decoration: InputDecoration(
               border: border,
-              hintText: "Old Password",
+              hintText: "舊密碼",
               labelStyle: CustomTextStyle.regularTextStyle
                   .copyWith(color: Colors.black, fontSize: 20),
               hintStyle:
@@ -197,7 +182,7 @@ class Profile extends StatelessWidget {
             obscureText: true,
             decoration: InputDecoration(
               border: border,
-              hintText: "New Password",
+              hintText: "新密碼",
               labelStyle: CustomTextStyle.regularTextStyle
                   .copyWith(color: Colors.black, fontSize: 20),
               hintStyle:
@@ -214,7 +199,7 @@ class Profile extends StatelessWidget {
             obscureText: true,
             decoration: InputDecoration(
               border: border,
-              hintText: "Confirm Password",
+              hintText: "確認密碼",
               labelStyle: CustomTextStyle.regularTextStyle
                   .copyWith(color: Colors.black, fontSize: 20),
               hintStyle:
@@ -291,10 +276,10 @@ class Profile extends StatelessWidget {
                   alignment: Alignment.center,
                   margin: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
                   child: Text(
-                    "profile",
+                    "個人資料",
                     textAlign: TextAlign.center,
                     style: CustomTextStyle.boldTextStyle.copyWith(
-                        fontSize: sliderHeaderFontSize, color: Colors.blueGrey),
+                        fontSize: sliderHeaderFontSize, color: Colors.black),
                   )),
             )
           ],

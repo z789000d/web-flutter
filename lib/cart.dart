@@ -136,7 +136,7 @@ class CartState extends State<Cart> {
                     itemBuilder: (context, position) {
                       return createListItem(position, context);
                     },
-                    itemCount: 3,
+                    itemCount: productList.length,
                     primary: false,
                     shrinkWrap: true,
                   ),
@@ -202,6 +202,7 @@ class CartState extends State<Cart> {
           child: RaisedButton(
             child: Text(
               "確認使用折價券",
+              overflow: TextOverflow.ellipsis,
               style: CustomTextStyle.regularTextStyle
                   .copyWith(color: Colors.white),
             ),
@@ -245,7 +246,13 @@ class CartState extends State<Cart> {
           ),
           Row(
             children: <Widget>[
-              IconButton(icon: Icon(Icons.close), onPressed: () {}),
+              IconButton(
+                  icon: Icon(Icons.close),
+                  onPressed: () {
+                    setState(() {
+                      productList.removeAt(position);
+                    });
+                  }),
               ResponsiveLayout.isLargeScreen(context)
                   ? Container(
                       width: 80,

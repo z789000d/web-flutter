@@ -1,40 +1,50 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../productPage.dart';
 import '../utils/CustomTextStyle.dart';
 import '../utils/ResponsiveLayout.dart';
 
-class HomeSlider extends StatelessWidget{
+class HomeSlider extends StatefulWidget {
+  HomeSlider(this.parentContext, {Key? key}) : super(key: key);
+  late var parentContext;
 
-  double sliderHeight = 500;
-  double sliderHeaderFontSize=60;
+  @override
+  HomeSliderState createState() => HomeSliderState();
+}
+
+class HomeSliderState extends State<HomeSlider> {
+  double sliderHeight = 600;
+  double sliderHeaderFontSize = 60;
   List<String> listImage = [];
   List<String> listBannerTitle = [];
+  int pageViewIndex = 0;
 
-  HomeSlider(BuildContext context){
+  @override
+  initState() {
     bannerList();
     bannerTitle();
-    setUp(context);
+    setUp(widget.parentContext);
+    super.initState();
   }
 
-  setUp(context){
+  setUp(context) {
     if (ResponsiveLayout.isLargeScreen(context)) {
-      sliderHeight = MediaQuery.of(context).size.height/2;
-      sliderHeaderFontSize=60;
+      sliderHeight = MediaQuery.of(context).size.height;
+      sliderHeaderFontSize = 60;
     } else if (ResponsiveLayout.isMediumScreen(context)) {
-      sliderHeight = MediaQuery.of(context).size.height/2;
-      sliderHeaderFontSize=30;
+      sliderHeight = MediaQuery.of(context).size.height / 2;
+      sliderHeaderFontSize = 30;
     } else {
-      sliderHeight = MediaQuery.of(context).size.height/2;
-      sliderHeaderFontSize=20;
+      sliderHeight = MediaQuery.of(context).size.height / 3;
+      sliderHeaderFontSize = 20;
     }
   }
 
   void bannerTitle() {
-    listBannerTitle.add("標題");
-    listBannerTitle.add("perfect\ntime to shop");
-    listBannerTitle.add("sense of\n sophistication");
+    listBannerTitle.add("banner1");
+    listBannerTitle.add("banner2");
+    listBannerTitle.add("banner3");
   }
 
   void bannerList() {
@@ -42,6 +52,7 @@ class HomeSlider extends StatelessWidget{
     listImage.add("banner/banner2.jpg");
     listImage.add("banner/banner3.jpg");
   }
+
   @override
   Widget build(BuildContext context) {
     return sliderSection(context);
@@ -54,13 +65,45 @@ class HomeSlider extends StatelessWidget{
           height: sliderHeight,
           child: PageView.builder(
             itemBuilder: (context, position) {
-              return createSlider(position);
+              pageViewIndex = position;
+              return createSlider(pageViewIndex % listImage.length);
             },
-            itemCount: listImage.length,
+            onPageChanged: (position) {
+              setState(() {});
+            },
+            itemCount: 999,
           ),
         ),
+        Positioned.fill(
+            child: Container(
+          alignment: Alignment.bottomCenter,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: indicator(pageViewIndex % listImage.length),
+          ),
+        ))
       ],
     );
+  }
+
+  List<Widget> indicator(int nowPosition) {
+    List<Widget> indicatorList = [];
+
+    for (int i = 0; i < listImage.length; i++) {
+      indicatorList.add(Container(
+        margin: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+        decoration: BoxDecoration(
+            color: nowPosition == i ? Colors.blue : Colors.grey,
+            borderRadius: BorderRadius.circular(1000)),
+        child: SizedBox(
+          width: 10,
+          height: 10,
+        ),
+      ));
+    }
+
+    return indicatorList;
   }
 
   createSlider(position) {
@@ -80,59 +123,43 @@ class HomeSlider extends StatelessWidget{
       textAlign = TextAlign.end;
       crossAxisAlignment = CrossAxisAlignment.end;
     }
-    return Container(
-        width: double.infinity,
-        child: Stack(
-          children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Image(
-                image: AssetImage(listImage[position]),
-                fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => ProductPage()));
+      },
+      child: Container(
+          width: double.infinity,
+          child: Stack(
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                child: Image(
+                  image: AssetImage(listImage[position]),
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            Container(
-              alignment: alignment,
-              margin: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: crossAxisAlignment,
-                children: <Widget>[
-                  Text(
-                    listBannerTitle[position],
-                    textAlign: textAlign,
-                    style: CustomTextStyle.boldTextStyle.copyWith(fontSize: sliderHeaderFontSize),
-                  ),
-                  Container(
-                    width: 100,
-                    height: 4,
-                    color: Colors.black,
-                    margin: EdgeInsets.only(top: 24),
-                  ),
-                  SizedBox(
-                    height: 24,
-                  ),
-                  RaisedButton.icon(
-                    onPressed: () {},
-                    color: Colors.black,
-                    textColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(2))),
-                    label: Text(
-                      "Subscribe",
-                      style: CustomTextStyle.regularTextStyle
-                          .copyWith(color: Colors.white, fontSize: 14),
+              Container(
+                alignment: alignment,
+                margin: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: crossAxisAlignment,
+                  children: <Widget>[
+                    Text(
+                      listBannerTitle[position],
+                      textAlign: textAlign,
+                      style: CustomTextStyle.boldTextStyle
+                          .copyWith(fontSize: sliderHeaderFontSize),
                     ),
-                    icon: Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
+                    SizedBox(
+                      height: 24,
                     ),
-                  )
-                ],
-              ),
-            )
-          ],
-        ));
+                  ],
+                ),
+              )
+            ],
+          )),
+    );
   }
-
 }
